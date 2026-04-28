@@ -1,4 +1,4 @@
-# 🎬 MovieApp - React Practice Project
+# 🎬 MovieApp
 
 A simple Movie Search App built to practice **React** and **Tailwind CSS**.
 
