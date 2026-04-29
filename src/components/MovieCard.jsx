@@ -7,8 +7,8 @@ function MovieCard(props) {
   return (
     <>
       <div className="w-full h-auto">
-        <div className="w-full h-93 border-4 border-white rounded-lg relative group transition duration-450 ease-linear hover:border-green-500 overflow-hidden">
-          <img src={props.poster} alt={props.title} className="w-full max-w-full aspect-2/3 object-cover  block" />
+        <div className="w-full h-75 border-4 border-white rounded-lg relative group transition duration-450 ease-linear hover:border-green-500 overflow-hidden">
+          <img src={props.poster} alt={props.title} className="w-full h-full max-w-full object-cover  block" />
 
           <div className="absolute inset-0 w-full h-full flex flex-col items-center pt-8 pb-4 px-4 bg-gray-950/45 backdrop-blur-sm z-2 opacity-0 transition duration-300 ease-linear group-hover:opacity-100">
             <IconStarFilled className="text-green-500" />
