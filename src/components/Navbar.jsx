@@ -1,6 +1,6 @@
 import { Link } from 'react-router'
 import Wrapper from './Wrapper'
-import NavLink from './NavLink'
+import MenuLink from './MenuLink'
 
 function Navbar() {
   return (
@@ -11,8 +11,8 @@ function Navbar() {
         </div>
         <div className='w-full lg:w-9/12 px-4'>
           <div className='h-full flex justify-end items-center gap-8'>
-            <NavLink to='/' name='Home' />
-            <NavLink to='/browse-movies' name='Browse Movies' />
+            <MenuLink to='/' name='Home' />
+            <MenuLink to='/browse-movies' name='Browse Movies' />
           </div>
         </div>
       </Wrapper>
