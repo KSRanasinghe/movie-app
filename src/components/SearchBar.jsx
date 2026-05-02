@@ -1,11 +1,12 @@
 import { useId, useRef } from "react"
 
-function SearchBar({setQuery}) {
+function SearchBar({setQuery, setCurrentPage}) {
   const movieInputId = useId();
   const movieRef = useRef();
 
   const handleSubmit = () => {
     setQuery(movieRef.current.value);
+    setCurrentPage(1);
   }
 
   return (

@@ -12,12 +12,13 @@ function BrowseMovies() {
   const [isLoading, setIsLoading] = useState(true);
   const [finalMovie, setFinalMovies] = useState([]);
   const [pages, setPages] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const API_KEY = 'ec51a0d2';
 
   useEffect(() => {
     const getMovies = async () => {
       setIsLoading(true);
-      const URL = `https://www.omdbapi.com/?s=%22${query}%22&apikey=${API_KEY}`;
+      const URL = `https://www.omdbapi.com/?s=%22${query}%22&page=${currentPage}&apikey=${API_KEY}`;
 
       try {
         const res = await fetch(URL);
@@ -35,7 +36,6 @@ function BrowseMovies() {
           const finalMovies = await Promise.all(detailPromise);
           setFinalMovies(finalMovies);
 
-          console.log(data.totalResults);
           const totalPages = Math.ceil(data.totalResults / 10);
           setPages(totalPages);
         }
@@ -47,7 +47,7 @@ function BrowseMovies() {
     }
 
     getMovies();
-  }, [query]);
+  }, [query, currentPage]);
 
   return (
     <>
@@ -56,7 +56,7 @@ function BrowseMovies() {
         <div className='w-full max-w-full px-4'>
           <h1 className='text-center font-arimo text-white font-light text-5xl pb-6'>Search What <span className='font-poppins font-bold tracking-tight text-transparent bg-linear-to-r from-green-500 to-cyan-400 bg-clip-text'>You Love</span></h1>
           <div className="max-w-2xl mx-auto">
-            <SearchBar setQuery={setQuery}/>
+            <SearchBar setQuery={setQuery} setCurrentPage={setCurrentPage}/>
           </div>
         </div>
       </Wrapper>
@@ -73,7 +73,7 @@ function BrowseMovies() {
               ))}
             </div>
             <div className="max-w-6xl mx-auto pt-5">
-              <PaginationRow pages={pages}/>
+              <PaginationRow pages={pages} currentPage={currentPage} setCurrentPage={setCurrentPage}/>
             </div>
           </>
         )}

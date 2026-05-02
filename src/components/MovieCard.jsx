@@ -1,16 +1,20 @@
 import { IconStarFilled } from "@tabler/icons-react"
+import { useState } from "react";
 import { Link } from "react-router"
 
 function MovieCard(props) {
+  const [imgSrc, setImgSrc] = useState(props.poster);
   const formattedYear = props.year.length > 4 ? props.year.slice(0, 4) : props.year;
-  const posterSrc = props.poster !== "N/A" ? props.poster : "https://placehold.net/400x600.png"
+  const fallbackImg = "https://placehold.net/400x600.png";
 
   return (
     <>
       <div className="w-full h-auto">
         <div className={`w-full ${props.height} border-4 border-white rounded-lg relative group transition duration-450 ease-linear hover:border-green-500 overflow-hidden`}>
-          <img src={posterSrc} alt={props.title} className="w-full h-full max-w-full object-cover  block" />
-
+          <img src={imgSrc == "N/A" ? fallbackImg : imgSrc}
+            alt={props.title}
+            onError={() => setImgSrc(fallbackImg)}
+            className="w-full h-full max-w-full object-cover  block" />
           <div className="absolute inset-0 w-full h-full flex flex-col items-center pt-8 pb-4 px-4 bg-gray-950/45 backdrop-blur-sm z-2 opacity-0 transition duration-300 ease-linear group-hover:opacity-100">
             <IconStarFilled className="text-green-500" />
             <p className="font-arimo font-bold text-white text-3xl mt-3.5">{props.imdb} / 10</p>
