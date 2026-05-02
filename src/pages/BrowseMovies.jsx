@@ -56,7 +56,7 @@ function BrowseMovies() {
         <div className='w-full max-w-full px-4'>
           <h1 className='text-center font-arimo text-white font-light text-5xl pb-6'>Search What <span className='font-poppins font-bold tracking-tight text-transparent bg-linear-to-r from-green-500 to-cyan-400 bg-clip-text'>You Love</span></h1>
           <div className="max-w-2xl mx-auto">
-            <SearchBar />
+            <SearchBar setQuery={setQuery}/>
           </div>
         </div>
       </Wrapper>
