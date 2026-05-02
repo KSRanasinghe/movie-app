@@ -52,7 +52,7 @@ function Home() {
         ) : (
           <div className='w-full max-w-full grid grid-cols-4 gap-x-15 gap-y-10 px-4 py-12'>
             {finalMovie.map((movie) => (
-              <MovieCard key={movie.imdbID} title={movie.Title} year={movie.Year} genre={movie.Genre} poster={movie.Poster} imdb={movie.imdbRating} />
+              <MovieCard height="h-95" key={movie.imdbID} title={movie.Title} year={movie.Year} genre={movie.Genre} poster={movie.Poster} imdb={movie.imdbRating} />
             ))}
           </div>
         )}
